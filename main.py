@@ -1,19 +1,10 @@
 def to_roman_numerals(num_to_convert):
     accu = ''
+    partials = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]
+    representations = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I']
 
-    num_to_convert, accu = check_for_partial(num_to_convert, accu, 1000, 'M')
-    num_to_convert, accu = check_for_partial(num_to_convert, accu, 900, 'CM')
-    num_to_convert, accu = check_for_partial(num_to_convert, accu, 500, 'D')
-    num_to_convert, accu = check_for_partial(num_to_convert, accu, 400, 'CD')
-    num_to_convert, accu = check_for_partial(num_to_convert, accu, 100, 'C')
-    num_to_convert, accu = check_for_partial(num_to_convert, accu, 90, 'XC')
-    num_to_convert, accu = check_for_partial(num_to_convert, accu, 50, 'L')
-    num_to_convert, accu = check_for_partial(num_to_convert, accu, 40, 'XL')
-    num_to_convert, accu = check_for_partial(num_to_convert, accu, 10, 'X')
-    num_to_convert, accu = check_for_partial(num_to_convert, accu, 9, 'IX')
-    num_to_convert, accu = check_for_partial(num_to_convert, accu, 5, 'V')
-    num_to_convert, accu = check_for_partial(num_to_convert, accu, 4, 'IV')
-    num_to_convert, accu = check_for_partial(num_to_convert, accu, 1, 'I')
+    for i in range(len(partials)):
+        num_to_convert, accu = check_for_partial(num_to_convert, accu, partials[i], representations[i])
 
     return accu
 
